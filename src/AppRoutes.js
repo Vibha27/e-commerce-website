@@ -1,14 +1,15 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ProductDetails } from './pages/ProductDetails/ProductDetails';
 
 export const AppRoutes = () => {
     return (
 
         <Routes>
-          <Route exact path="/" element={<h4>Product Details Page</h4>} />
+          <Route exact path="/" element={<ProductDetails />} />
           <Route
             path="/product-details"
-            element={<h4>Product Details Page</h4>}
+            element={<ProductDetails />}
           />
           <Route
             path="/compare-products"
