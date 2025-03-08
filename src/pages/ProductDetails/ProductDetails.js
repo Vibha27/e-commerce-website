@@ -59,12 +59,9 @@ export const ProductDetails = () => {
   };
 
   const handleCompareClick = (selectedProducts) => {
-    let products = productList.filter((product) =>
-      selectedProducts.includes(product.key)
-    );
     navigate("/compare-products", {
       state: {
-        productList: products,
+        productList: selectedProducts,
       },
     });
   };

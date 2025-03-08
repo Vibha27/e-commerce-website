@@ -3,11 +3,17 @@ import { Button, Table } from "antd";
 import { MdCompare } from "react-icons/md";
 
 const onChange = (pagination, filters, sorter, extra) => {
-//   console.log("params", pagination, filters, sorter, extra);
-return
+  //   console.log("params", pagination, filters, sorter, extra);
+  return;
 };
 
-export const ProductsTable = ({ data = [], columns = [], onCompare=null, selectedProducts=[] }) => {
+export const ProductsTable = ({
+  data = [],
+  columns = [],
+  onCompare = null,
+  selectedProducts = [],
+  onProductSelect = null,
+}) => {
   const [productList, setProductList] = useState(data);
   const [selectedRowKeys, setSelectedRowKeys] = useState([...selectedProducts]);
 
@@ -18,6 +24,9 @@ export const ProductsTable = ({ data = [], columns = [], onCompare=null, selecte
   const onSelectChange = (newSelectedRowKeys) => {
     if (selectedRowKeys.length <= 4) {
       setSelectedRowKeys(newSelectedRowKeys);
+      if (onProductSelect) {
+        onProductSelect(newSelectedRowKeys);
+      }
     }
   };
 
@@ -33,17 +42,19 @@ export const ProductsTable = ({ data = [], columns = [], onCompare=null, selecte
 
   return (
     <>
-      {onCompare && (selectedRowKeys.length > 1 && selectedRowKeys.length <= 4) && (
-        <Button
-          type="primary"
-          icon={<MdCompare />}
-          size={"large"}
-          style={{ float: "right", marginBottom: "8px" }}
-          onClick={() => onCompare(selectedRowKeys)}
-        >
-          Compare
-        </Button>
-      )}
+      {onCompare &&
+        selectedRowKeys.length > 1 &&
+        selectedRowKeys.length <= 4 && (
+          <Button
+            type="primary"
+            icon={<MdCompare />}
+            size={"large"}
+            style={{ float: "right", marginBottom: "8px" }}
+            onClick={() => onCompare(selectedRowKeys)}
+          >
+            Compare
+          </Button>
+        )}
       <Table
         rowSelection={rowSelection}
         columns={columns}
