@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "antd";
+
 const columns = [
   {
     title: "Title",
@@ -38,6 +39,7 @@ const onChange = (pagination, filters, sorter, extra) => {
 
 export const ProductsTable = () => {
   const [productList, setProductList] = useState([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -47,12 +49,31 @@ export const ProductsTable = () => {
     fetch(`https://dummyjson.com/products`)
       .then((res) => res.json())
       .then((data) => {
-        setProductList(data.products);
+        setProductList(
+          data.products.map((product) => ({ ...product, key: product.id }))
+        );
       });
+  };
+
+  const onSelectChange = (newSelectedRowKeys) => {
+    if (selectedRowKeys.length <= 4) {
+        setSelectedRowKeys(newSelectedRowKeys);
+    }
+  };
+
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+    getCheckboxProps: (record) => ({
+      disabled:
+        selectedRowKeys.length >= 4 && !selectedRowKeys.includes(record.key), // to disable rows if 4 rows are selected and all rows other than already selected
+    }),
+    columnTitle: () => null, // to remove select all checkbox
   };
 
   return (
     <Table
+      rowSelection={rowSelection}
       columns={columns}
       dataSource={productList}
       onChange={onChange}
