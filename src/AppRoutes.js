@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ProductDetails } from './pages/ProductDetails/ProductDetails';
+import { CompareProducts } from './pages/CompareProducts/CompareProducts';
 
 export const AppRoutes = () => {
     return (
@@ -13,7 +14,7 @@ export const AppRoutes = () => {
           />
           <Route
             path="/compare-products"
-            element={<h4>Compare Product Page</h4>}
+            element={<CompareProducts />}
           />
           <Route path="*" element={<h4>404 Not found</h4>} />
         </Routes>
