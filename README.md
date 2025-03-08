@@ -3,7 +3,7 @@
 🚀 **Compare Products** is a product comparison application that allows users to select multiple products, view their details, and compare them side-by-side.
 
 ## 🔗 Live Demo
-[🌐 View Live Project](https://67cc496c67df740d795a6ff8--compare-products-by-vibha.netlify.app/product-details)
+[🌐 View Live Project](https://67cc496c67df740d795a6ff8--compare-products-by-vibha.netlify.app/)
 
 ---
 
@@ -22,11 +22,14 @@
 ---
 
 ## 📸 Screenshots
-### 🖼 **Product Details Page**
-![Product Details](https://67cc496c67df740d795a6ff8--compare-products-by-vibha.netlify.app/product-details)
+### 🖼 **Product Details Page with two product selected**
+![Product Details](public/snapshots/image1.png)
 
-### 🖼 **Compare Products Table**
-![Compare Products](https://67cc496c67df740d795a6ff8--compare-products-by-vibha.netlify.app/compare-products)
+### 🖼 **Compare Products Table redirected on compare button click**
+![Compare Products](public/snapshots/image2.png)
+
+### 🖼 **Compare Products Table "Add More" modal with pre-selected products**
+![Compare Products](public/snapshots/image3.png)
 
 ---
 
