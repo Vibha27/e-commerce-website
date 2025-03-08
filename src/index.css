@@ -28,3 +28,20 @@ code {
   background-color: #495f75 !important;
   border-color: #495f75 !important;
 }
+
+.ant-btn-primary:disabled {
+  color: white;
+  background-color: #495f75 !important;
+  border-color: #495f75 !important;
+}
+
+.ant-btn-dangerous:hover {
+  background-color: #ff7875 !important; /* Custom danger button color */
+  border-color: #ff7875 !important;
+}
+
+.ant-btn-dangerous {
+  background-color: #d9363e !important; /* Darker shade on hover */
+  border-color: #d9363e !important;
+  color: white !important;
+}

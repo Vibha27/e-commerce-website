@@ -102,7 +102,7 @@ export const ComparisionTable = ({ products = [], removeProduct }) => {
             {products.map((product) => (
               <Td key={product.id}>
                 <Button
-                  type="primary"
+                  // type="primary"
                   danger
                   size={"large"}
                   disabled={products.length <= 2}
