@@ -11,29 +11,55 @@ export const CompareProducts = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [products, setProducts] = useState([]);
-  const [productList, setProductList] = useState(
+  const [productKeys, setProductKeys] = useState(
     location.state?.productList || []
   );
+  const [productList, setProductList] = useState([]);
+
+  const [modalSelectedProduct, setModalSelectedProducts] = useState([]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    updateProductList();
+  }, [productKeys, products]);
+
   const fetchData = () => {
     fetch(`https://dummyjson.com/products`)
       .then((res) => res.json())
       .then((data) => {
-        setProducts(
-          data.products.map((product) => ({ ...product, key: product.id }))
-        );
+        let list = data.products.map((product) => ({
+          ...product,
+          key: product.id,
+        }));
+
+        setProducts(list);
       });
   };
 
+  const updateProductList = () => {
+    // for fetching product details of selected keys
+    setProductList(
+      products.filter((product) => productKeys.includes(product.key))
+    );
+  };
+
   const handleRemoveProduct = (id) => {
-    setProductList(productList.filter((product) => product.id !== id));
+    // removing key from selected products
+    setProductKeys(productKeys.filter((key) => id !== key));
+  };
+
+  const handleProductSelect = (selected = null) => {
+    // for saving user selected product from modal
+    if (selected !== null) {
+      setModalSelectedProducts(selected);
+    }
   };
 
   const handleOk = () => {
+    setProductKeys([...modalSelectedProduct]); // adding modal's products keys only after submitting
     setShowModal(false);
   };
 
@@ -66,6 +92,8 @@ export const CompareProducts = () => {
           <ProductsTable
             columns={columns}
             data={products}
+            onProductSelect={handleProductSelect}
+            selectedProducts={productKeys}
           />
         </Modal>
       )}
