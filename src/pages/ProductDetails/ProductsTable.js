@@ -1,63 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "antd";
-
-const columns = [
-  {
-    title: "Title",
-    dataIndex: "title",
-    showSorterTooltip: {
-      target: "full-header",
-    },
-  },
-  {
-    title: "Description",
-    dataIndex: "description",
-  },
-  {
-    title: "Price",
-    dataIndex: "price",
-    sorter: (a, b) => a.price - b.price,
-  },
-  {
-    title: "Discount percentage",
-    dataIndex: "discountPercentage",
-    sorter: (a, b) => a.discountPercentage - b.discountPercentage,
-  },
-  {
-    title: "Brand",
-    dataIndex: "brand",
-  },
-  {
-    title: "Category",
-    dataIndex: "category",
-  },
-];
+import { Button, Table } from "antd";
+import { MdCompare } from "react-icons/md";
 
 const onChange = (pagination, filters, sorter, extra) => {
-  console.log("params", pagination, filters, sorter, extra);
+//   console.log("params", pagination, filters, sorter, extra);
+return
 };
 
-export const ProductsTable = () => {
-  const [productList, setProductList] = useState([]);
+export const ProductsTable = ({ data = [], columns = [], onCompare=null }) => {
+  const [productList, setProductList] = useState(data);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = () => {
-    fetch(`https://dummyjson.com/products`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProductList(
-          data.products.map((product) => ({ ...product, key: product.id }))
-        );
-      });
-  };
+    setProductList(data);
+  }, [data]);
 
   const onSelectChange = (newSelectedRowKeys) => {
     if (selectedRowKeys.length <= 4) {
-        setSelectedRowKeys(newSelectedRowKeys);
+      setSelectedRowKeys(newSelectedRowKeys);
     }
   };
 
@@ -72,14 +32,27 @@ export const ProductsTable = () => {
   };
 
   return (
-    <Table
-      rowSelection={rowSelection}
-      columns={columns}
-      dataSource={productList}
-      onChange={onChange}
-      showSorterTooltip={{
-        target: "sorter-icon",
-      }}
-    />
+    <>
+      {onCompare && (selectedRowKeys.length > 1 && selectedRowKeys.length <= 4) && (
+        <Button
+          type="primary"
+          icon={<MdCompare />}
+          size={"large"}
+          style={{ float: "right", marginBottom: "8px" }}
+          onClick={() => onCompare(selectedRowKeys)}
+        >
+          Compare
+        </Button>
+      )}
+      <Table
+        rowSelection={rowSelection}
+        columns={columns}
+        dataSource={productList}
+        onChange={onChange}
+        showSorterTooltip={{
+          target: "sorter-icon",
+        }}
+      />
+    </>
   );
 };
