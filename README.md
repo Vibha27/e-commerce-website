@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# 🛍️ Compare Products (KYC Hub Challenge) - React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 **Compare Products** is a product comparison application that allows users to select multiple products, view their details, and compare them side-by-side.
 
-## Available Scripts
+## 🔗 Live Demo
+[🌐 View Live Project](https://67cc496c67df740d795a6ff8--compare-products-by-vibha.netlify.app/product-details)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📌 Features
+✅ **Product Listing** - Browse products dynamically fetched from an API with sorting and pagination functionalities.  
+✅ **Product Comparison** - Select up to max 4 products and compare their features.
+                           - Compare button will be visibile only after selecting minimum 2 products.  
+                           - Add More button have been added to add more products by staying on compare products page with the help of modal pop up.
+                           - Selected products will be pre filled in pop up to avoid duplication.
+✅ **Sorting** - Easily sort products by by price and discounted percent.  
+✅ **Reusable Components** - Modular and scalable React components such as Header, Sidebar, ProductTable, etc.  
+✅ **Styled with Ant Design** - Interactive UI using Ant Design components.  
+✅ **State Management OR Passing State** - Managed with `useState` and `useEffect` and passing state via routing using useNavgate.  
+✅ **Netlify Deployment** - Hosted with **Netlify** for quick access.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📸 Screenshots
+### 🖼 **Product Details Page**
+![Product Details](https://67cc496c67df740d795a6ff8--compare-products-by-vibha.netlify.app/product-details)
 
-### `npm test`
+### 🖼 **Compare Products Table**
+![Compare Products](https://67cc496c67df740d795a6ff8--compare-products-by-vibha.netlify.app/compare-products)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Tech Stack
+- **React.js** - Component-based UI  
+- **Ant Design** - UI library for styling  
+- **React Router** - Navigation & routing  
+- **React Icons** - Icons
+- **Netlify** - Deployment platform  
+- **Fetch API** - Fetching product data  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🚀 Installation & Setup
+### **1️⃣ Clone the Repository**
+```sh
+git clone https://github.com/your-username/compare-products.git
+cd compare-products
