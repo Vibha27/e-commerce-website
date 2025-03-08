@@ -11,6 +11,8 @@ const Layout = styled.div`
 const Content = styled.main`
   flex: 1;
   padding: 2rem;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
 `;
 
 export const Main = () => {
