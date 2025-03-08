@@ -7,9 +7,9 @@ const onChange = (pagination, filters, sorter, extra) => {
 return
 };
 
-export const ProductsTable = ({ data = [], columns = [], onCompare=null }) => {
+export const ProductsTable = ({ data = [], columns = [], onCompare=null, selectedProducts=[] }) => {
   const [productList, setProductList] = useState(data);
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([...selectedProducts]);
 
   useEffect(() => {
     setProductList(data);
