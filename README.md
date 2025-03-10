@@ -42,9 +42,3 @@
 - **Fetch API** - Fetching product data  
 
 ---
-
-## 🚀 Installation & Setup
-### **1️⃣ Clone the Repository**
-```sh
-git clone https://github.com/your-username/compare-products.git
-cd compare-products
