@@ -1,4 +1,4 @@
-# 🛍️ Compare Products (KYC Hub Challenge) - React Application
+# 🛍️ Compare Products - React Application
 
 🚀 **Compare Products** is a product comparison application that allows users to select multiple products, view their details, and compare them side-by-side.
 
